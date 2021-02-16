@@ -12,8 +12,8 @@
 
 #import des librairies
 
-from tkinter import *
-root = Tk()
+import tkinter as tk
+root = tk
 root.title("Projet Incendie")
 from random import random
 import numpy as np
@@ -50,14 +50,20 @@ def creerForet(x,y,pcocup):
                 foret[i,j]=0. # sinon il n'y a pas d'arbre mais de l'eau
     return foret
 
-
+def mettre_le_feu(foret,i,j):
+    "met le feu a un arbre"
+    if foret[i,j]==1:
+        foret[i,j]=2. # on met le feu la case d'indice (i,j)
+    return foret
 
 
 
 #programme principal contenant la définition des widgets et des événements qui leur sont liés et l’appel à la boule de gestion des événements
 
-foret = Button(root, text="crée une foret", command= creerForet() )
-
+foret = root.Button(root, text="crée une foret", command= creerForet() )
+foret.pack()
+feu = root.Button(root, text="crée une foret", command= mettre_le_feu() )
+feu.pack()
 
 
 
