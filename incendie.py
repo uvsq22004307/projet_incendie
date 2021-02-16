@@ -54,7 +54,7 @@ def creerForet(x,y,pcocup):
 def mettre_le_feu(foret,i,j):
     "met le feu a un arbre"
     if foret[i,j]==1:
-        foret[i,j]=2. # on met le feu la case d'indice (i,j)
+        foret[i,j]=2. # on met le feu la case d'indice  (i,j)
     return foret
 
 
