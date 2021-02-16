@@ -11,10 +11,12 @@
 
 
 #import des librairies
+
 from tkinter import *
 root = Tk()
 root.title("Projet Incendie")
 from random import random
+import numpy as np
 
 
 #définition des constantes (écrites en majuscule)
@@ -35,12 +37,12 @@ def hasard(p):
     return r <= p # si r<=p (une proba p) on retourne True sinon on retourne False (une proba 1-p)
              
 
-def creerForet(x,y,pcoccup):
+def creerForet(x,y,pcocup):
     "cree une foret avec des arbres et de l'eau placés aleatoirements"
     foret=np.zeros((x,y)) # on cree un matrice n*m de zeros
     for i in range(x):
         for j in range(y):
-            if hasard(pcoccup):
+            if hasard(pcocup):
                 foret[i,j]=1. # si on une proba p alors il y a un arbre
             else:
                 foret[i,j]=0. # sinon il n'y a pas d'arbre mais de l'eau
@@ -52,7 +54,7 @@ def creerForet(x,y,pcoccup):
 
 #programme principal contenant la définition des widgets et des événements qui leur sont liés et l’appel à la boule de gestion des événements
 
-foret = Button(root, text="crée une foret", command=    )
+foret = Button(root, text="crée une foret") #, command=    )
 
 
 
