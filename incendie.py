@@ -19,6 +19,7 @@ from random import random
 import numpy as np
 
 
+
 #définition des constantes (écrites en majuscule)
 
 
@@ -30,6 +31,7 @@ import numpy as np
 
 
 #définition des fonctions (chaque fonction devra contenir une docstring)
+
 def hasard(p):
     "renvoie True avec une probabilité p et False avec une probabilité 1-p"
     r=random() # on prend au hasard un nombre entre 0 et 1
@@ -39,7 +41,7 @@ def hasard(p):
 
 def creerForet(x,y,pcocup):
     "cree une foret avec des arbres et de l'eau placés aleatoirements"
-    foret=np.zeros((x,y)) # on cree un matrice n*m de zeros
+    foret=np.zeros((x,y)) # on cree un matrice x*y de zeros
     for i in range(x):
         for j in range(y):
             if hasard(pcocup):
@@ -54,7 +56,7 @@ def creerForet(x,y,pcocup):
 
 #programme principal contenant la définition des widgets et des événements qui leur sont liés et l’appel à la boule de gestion des événements
 
-foret = Button(root, text="crée une foret") #, command=    )
+foret = Button(root, text="crée une foret", command= creerForet() )
 
 
 
