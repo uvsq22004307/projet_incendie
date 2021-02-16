@@ -16,7 +16,7 @@ from tkinter import *
 root = Tk()
 root.title("Projet Incendie")
 from random import random
-import math as np
+import numpy as np
 
 
 
