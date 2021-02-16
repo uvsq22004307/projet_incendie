@@ -13,11 +13,11 @@
 #import des librairies
 
 import tkinter as tk
-root = tk
+root = tk.Tk()
 root.title("Projet Incendie")
 from random import random
 import numpy as np
-
+canvas = tk.Canvas( width = 500, height = 500)
 
 
 #définition des constantes (écrites en majuscule)
@@ -32,11 +32,12 @@ import numpy as np
 
 #définition des fonctions (chaque fonction devra contenir une docstring)
 
+
 def hasard(p):
-    "renvoie True avec une probabilité p et False avec une probabilité 1-p"
-    r=random() # on prend au hasard un nombre entre 0 et 1
-    assert p>=0 and p<=1  # verifions que p est dans [0,1]
-    return r <= p # si r<=p (une proba p) on retourne True sinon on retourne False (une proba 1-p)
+   "renvoie True avec une probabilité p et False avec une probabilité 1-p"
+   r=random() # on prend au hasard un nombre entre 0 et 1
+   assert p>=0 and p<=1  # verifions que p est dans [0,1]
+   return r <= p # si r<=p (une proba p) on retourne True sinon on retourne False (une proba 1-p)
              
 
 def creerForet(x,y,pcocup):
@@ -60,9 +61,9 @@ def mettre_le_feu(foret,i,j):
 
 #programme principal contenant la définition des widgets et des événements qui leur sont liés et l’appel à la boule de gestion des événements
 
-foret = root.Button(root, text="crée une foret", command= creerForet() )
+foret = tk.Button(root, text="crée une foret", command= creerForet() )
 foret.pack()
-feu = root.Button(root, text="crée une foret", command= mettre_le_feu() )
+feu = tk.Button(root, text="crée une foret", command= mettre_le_feu() )
 feu.pack()
 
 
