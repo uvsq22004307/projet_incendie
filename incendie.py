@@ -60,7 +60,12 @@ def draw_grid(canvas, grid, height, width):
             x = width / len(row)
             y = height / len(grid)
 
-            canvas.create_rectangle(j * x, i * y, j * x + x, i * y + y, fill=color(cell))
+            canvas.create_rectangle(j * x, i * y, j * x + x, i * y + y, fill=color(cell), tag=str(i)+":"+str(j), outline="")
+
+
+def change_element_on_grid(canvas, i, j, element):
+    """Change la couleur d'un élément dans le canvas."""
+    canvas.itemconfigure(str(i)+":"+str(j), fill=color(element))
 
 
 def color(element):
@@ -80,7 +85,8 @@ def color(element):
 root = tk.Tk()
 root.title("Projet Incendie")
 
-canvas = tk.Canvas(width=500, height=500)
+canvas = tk.Canvas(root, width=500, height=500)
+canvas.pack()
 
 foret = tk.Button(root, text="crée une foret", command=creerForet())
 foret.pack()
