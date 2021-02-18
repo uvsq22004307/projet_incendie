@@ -53,6 +53,29 @@ def mettre_le_feu(foret, i, j):
     return foret
 
 
+def draw_grid(canvas, grid, height, width):
+    """Dessine la grille dans le canvas."""
+    for i, row in enumerate(grid):
+        for j, cell in enumerate(row):
+            x = width / len(row)
+            y = height / len(grid)
+
+            canvas.create_rectangle(j * x, i * y, j * x + x, i * y + y, fill=color(cell))
+
+
+def color(element):
+    """Renvoie la couleur de l'élément correspondant."""
+    switcher = {
+        0: "blue",  # Eau
+        1: "green",  # Forêt
+        2: "red",  # Feu
+        3: "yellow",  # Prairie
+        4: "gray",  # Cendres tièdes
+        5: "black"  # Cendres éteintes
+    }
+    return switcher.get(element, "blue")
+
+
 # Programme principal contenant la définition des widgets et des événements qui leur sont liés et l’appel à la boule de gestion des événements
 root = tk.Tk()
 root.title("Projet Incendie")
